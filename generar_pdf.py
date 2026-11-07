@@ -222,3 +222,4 @@ A continuación se muestran las capturas de la terminal ejecutando el programa c
 
 if __name__ == "__main__":
     generar_documento_pdf()
+
