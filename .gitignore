@@ -1,0 +1,8 @@
+# Ignorar archivos auxiliares de PDF, capturas y temporales
+*.pdf
+capturas/
+generar_*.py
+logo_ITA.png
+README.md
+__pycache__/
+.DS_Store
