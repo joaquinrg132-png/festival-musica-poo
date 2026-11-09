@@ -1,17 +1,12 @@
 #!/usr/bin/env python3
 """
-Script para generar capturas de pantalla de alta fidelidad de la terminal
-y generar el archivo PDF de entrega de la actividad.
+Script para generar capturas de pantalla de la terminal sin emojis
 """
 import os
 import AppKit
 import Foundation
 
 def create_terminal_screenshot(output_path, title, lines_data, width=850, height=620):
-    """
-    Crea una imagen PNG que simula una ventana de terminal de macOS.
-    lines_data es una lista de tuplas: (texto, (r, g, b))
-    """
     image = AppKit.NSImage.alloc().initWithSize_(Foundation.NSMakeSize(width, height))
     image.lockFocus()
 
@@ -30,12 +25,12 @@ def create_terminal_screenshot(output_path, title, lines_data, width=850, height
     bar_color.set()
     AppKit.NSBezierPath.fillRect_(bar_rect)
 
-    # Botones macOS (Cerrar, Minimizar, Maximizar)
+    # Botones macOS
     button_y = height - title_bar_height / 2 - 6
     btn_colors = [
-        (0.98, 0.36, 0.35), # Rojo
-        (0.99, 0.75, 0.20), # Amarillo
-        (0.16, 0.79, 0.38)  # Verde
+        (0.98, 0.36, 0.35),
+        (0.99, 0.75, 0.20),
+        (0.16, 0.79, 0.38)
     ]
     for idx, (r, g, b) in enumerate(btn_colors):
         b_color = AppKit.NSColor.colorWithCalibratedRed_green_blue_alpha_(r, g, b, 1.0)
@@ -87,87 +82,86 @@ def create_terminal_screenshot(output_path, title, lines_data, width=850, height
     png_data.writeToFile_atomically_(output_path, True)
     print(f"Captura guardada en: {output_path}")
 
-# Datos para Captura 1: Entrada y Registro
+# Datos para Captura 1: Entrada y Registro (Sin emojis)
 lineas_captura_1 = [
     ("joaquin@MacBook-Pro festival_musica % python3 main.py", (0.40, 0.85, 0.40)),
     ("========================================", (0.45, 0.50, 0.60)),
-    ("    REGISTRO DEL FESTIVAL DE MÚSICA     ", (0.35, 0.75, 1.00)),
+    ("    REGISTRO DEL FESTIVAL DE MUSICA     ", (0.35, 0.75, 1.00)),
     ("========================================", (0.45, 0.50, 0.60)),
-    ("¿Cuántos artistas se presentarán en el festival?: 3", (0.95, 0.95, 0.95)),
+    ("Cuantos artistas se presentaran en el festival?: 3", (0.95, 0.95, 0.95)),
     ("", (1, 1, 1)),
     ("--- Datos del Artista #1 ---", (1.00, 0.80, 0.30)),
     ("Selecciona el tipo de artista:", (0.75, 0.75, 0.75)),
     ("  1. Cantante", (0.75, 0.75, 0.75)),
     ("  2. DJ", (0.75, 0.75, 0.75)),
     ("  3. Banda", (0.75, 0.75, 0.75)),
-    ("Opción (1-3): 1", (0.95, 0.95, 0.95)),
+    ("Opcion (1-3): 1", (0.95, 0.95, 0.95)),
     ("Nombre: Dua Lipa", (0.95, 0.95, 0.95)),
-    ("Género musical: Pop", (0.95, 0.95, 0.95)),
+    ("Genero musical: Pop", (0.95, 0.95, 0.95)),
     ("Popularidad (1 al 100): 95", (0.95, 0.95, 0.95)),
-    ("Canción más popular: Levitating", (0.95, 0.95, 0.95)),
+    ("Cancion mas popular: Levitating", (0.95, 0.95, 0.95)),
     ("", (1, 1, 1)),
     ("--- Datos del Artista #2 ---", (1.00, 0.80, 0.30)),
     ("Selecciona el tipo de artista:", (0.75, 0.75, 0.75)),
     ("  1. Cantante", (0.75, 0.75, 0.75)),
     ("  2. DJ", (0.75, 0.75, 0.75)),
     ("  3. Banda", (0.75, 0.75, 0.75)),
-    ("Opción (1-3): 2", (0.95, 0.95, 0.95)),
-    ("Nombre: Tiësto", (0.95, 0.95, 0.95)),
-    ("Género musical: Electrónica", (0.95, 0.95, 0.95)),
+    ("Opcion (1-3): 2", (0.95, 0.95, 0.95)),
+    ("Nombre: Tiesto", (0.95, 0.95, 0.95)),
+    ("Genero musical: Electronica", (0.95, 0.95, 0.95)),
     ("Popularidad (1 al 100): 90", (0.95, 0.95, 0.95)),
     ("Estilo de mezcla (ej. House, Techno, Electro): Trance", (0.95, 0.95, 0.95)),
     ("", (1, 1, 1)),
     ("--- Datos del Artista #3 ---", (1.00, 0.80, 0.30)),
-    ("Opción (1-3): 3", (0.95, 0.95, 0.95)),
-    ("Nombre: Queen | Género: Rock | Popularidad: 99 | Integrantes: 4", (0.95, 0.95, 0.95)),
+    ("Opcion (1-3): 3", (0.95, 0.95, 0.95)),
+    ("Nombre: Queen | Genero: Rock | Popularidad: 99 | Integrantes: 4", (0.95, 0.95, 0.95)),
 ]
 
-# Datos para Captura 2: Ejecución del Festival (Polimorfismo)
+# Datos para Captura 2: Ejecución del Festival (Sin emojis)
 lineas_captura_2 = [
     ("============================================================", (0.45, 0.50, 0.60)),
-    ("🎪✨ ¡COMIENZA EL GRAN FESTIVAL DE MÚSICA! ✨🎪", (1.00, 0.84, 0.00)),
+    ("        COMIENZA EL GRAN FESTIVAL DE MUSICA        ", (1.00, 0.84, 0.00)),
     ("============================================================", (0.45, 0.50, 0.60)),
     ("", (1, 1, 1)),
-    ("--- [Acto #1: Cantante] ---", (0.35, 0.75, 1.00)),
-    ("🎤 ¡Hola a todos! Soy Dua Lipa, exponente de Pop (Popularidad: 95/100).", (0.90, 0.90, 0.90)),
-    ("🎶 Dua Lipa canta su éxito 'Levitating' con gran energía.", (0.40, 0.85, 0.40)),
-    ("👋 ¡Muchas gracias por su energía! Se despide Dua Lipa. ¡Hasta la próxima!", (0.80, 0.80, 0.80)),
+    ("--- [Acto #1] ---", (0.35, 0.75, 1.00)),
+    ("Hola a todos! Soy Dua Lipa, exponente de Pop (Popularidad: 95/100).", (0.90, 0.90, 0.90)),
+    ("Dua Lipa canta su exito 'Levitating' con gran energia.", (0.40, 0.85, 0.40)),
+    ("Muchas gracias por su energia! Se despide Dua Lipa. Hasta la proxima!", (0.80, 0.80, 0.80)),
     ("", (1, 1, 1)),
-    ("🎆 Fin de la actuación 🎆", (1.00, 0.45, 0.75)),
+    ("--- Fin de la actuacion ---", (1.00, 0.65, 0.65)),
     ("------------------------------------------------------------", (0.45, 0.50, 0.60)),
     ("", (1, 1, 1)),
-    ("--- [Acto #2: DJ] ---", (0.35, 0.75, 1.00)),
-    ("🎤 ¡Hola a todos! Soy Tiësto, exponente de Electrónica (Popularidad: 90/100).", (0.90, 0.90, 0.90)),
-    ("🎧 El DJ Tiësto mezcla temas de estilo Trance, haciendo vibrar al público.", (0.40, 0.85, 0.40)),
-    ("👋 ¡Muchas gracias por su energía! Se despide Tiësto. ¡Hasta la próxima!", (0.80, 0.80, 0.80)),
+    ("--- [Acto #2] ---", (0.35, 0.75, 1.00)),
+    ("Hola a todos! Soy Tiesto, exponente de Electronica (Popularidad: 90/100).", (0.90, 0.90, 0.90)),
+    ("El DJ Tiesto mezcla temas de estilo Trance, haciendo vibrar al publico.", (0.40, 0.85, 0.40)),
+    ("Muchas gracias por su energia! Se despide Tiesto. Hasta la proxima!", (0.80, 0.80, 0.80)),
     ("", (1, 1, 1)),
-    ("🎆 Fin de la actuación 🎆", (1.00, 0.45, 0.75)),
+    ("--- Fin de la actuacion ---", (1.00, 0.65, 0.65)),
     ("------------------------------------------------------------", (0.45, 0.50, 0.60)),
     ("", (1, 1, 1)),
-    ("--- [Acto #3: Banda] ---", (0.35, 0.75, 1.00)),
-    ("🎤 ¡Hola a todos! Soy Queen, exponente de Rock (Popularidad: 99/100).", (0.90, 0.90, 0.90)),
-    ("🎸 La banda Queen con 4 integrantes toca un poderoso solo de guitarra.", (0.40, 0.85, 0.40)),
-    ("👋 ¡Muchas gracias por su energía! Se despide Queen. ¡Hasta la próxima!", (0.80, 0.80, 0.80)),
+    ("--- [Acto #3] ---", (0.35, 0.75, 1.00)),
+    ("Hola a todos! Soy Queen, exponente de Rock (Popularidad: 99/100).", (0.90, 0.90, 0.90)),
+    ("La banda Queen con 4 integrantes toca un poderoso solo de guitarra.", (0.40, 0.85, 0.40)),
+    ("Muchas gracias por su energia! Se despide Queen. Hasta la proxima!", (0.80, 0.80, 0.80)),
     ("", (1, 1, 1)),
-    ("🎆 Fin de la actuación 🎆", (1.00, 0.45, 0.75)),
+    ("--- Fin de la actuacion ---", (1.00, 0.65, 0.65)),
     ("------------------------------------------------------------", (0.45, 0.50, 0.60)),
-    ("🎉 El festival ha concluido exitosamente. ¡Gracias al público asistente! 🎉", (1.00, 0.84, 0.00)),
+    ("El festival ha concluido exitosamente. Gracias al publico asistente!", (1.00, 0.84, 0.00)),
 ]
 
 if __name__ == "__main__":
     os.makedirs("/Users/joaquingarcia/festival_musica/capturas", exist_ok=True)
     create_terminal_screenshot(
         "/Users/joaquingarcia/festival_musica/capturas/captura_1_registro.png",
-        "Terminal — Registro de Artistas (Cantante, DJ, Banda)",
+        "Terminal - Registro de Artistas (Cantante, DJ, Banda)",
         lineas_captura_1,
         width=860,
         height=620
     )
     create_terminal_screenshot(
         "/Users/joaquingarcia/festival_musica/capturas/captura_2_festival.png",
-        "Terminal — Ejecución del Festival (Polimorfismo)",
+        "Terminal - Ejecucion del Festival (Polimorfismo)",
         lineas_captura_2,
         width=860,
         height=620
     )
-

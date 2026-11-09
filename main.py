@@ -1,13 +1,13 @@
 """
-Programa: Simulación de Festival de Música
-Conceptos aplicados: Programación Orientada a Objetos (POO), Herencia y Polimorfismo.
+Programa: Simulacion de Festival de Musica
+Conceptos aplicados: Programacion Orientada a Objetos (POO), Herencia y Polimorfismo.
 """
 
 # ==========================================
-# 1️⃣ CLASE BASE: Artista
+# 1. CLASE BASE: Artista
 # ==========================================
 class Artista:
-    """Clase base que representa a un artista musical genérico."""
+    """Clase base que representa a un artista musical generico."""
 
     def __init__(self, nombre: str, genero: str, popularidad: int):
         self.nombre = nombre
@@ -15,20 +15,20 @@ class Artista:
         self.popularidad = popularidad
 
     def presentarse(self):
-        """Presentación genérica del artista."""
-        print(f"🎤 ¡Hola a todos! Soy {self.nombre}, exponente de {self.genero} (Popularidad: {self.popularidad}/100).")
+        """Presentacion generica del artista."""
+        print(f"Hola a todos! Soy {self.nombre}, exponente de {self.genero} (Popularidad: {self.popularidad}/100).")
 
     def actuar(self):
-        """Método base que será sobrescrito por cada subclase (polimorfismo)."""
-        print(f"🎵 {self.nombre} está realizando una presentación en el escenario.")
+        """Metodo base que sera sobrescrito por cada subclase (polimorfismo)."""
+        print(f"{self.nombre} esta realizando una presentacion en el escenario.")
 
     def despedirse(self):
         """Mensaje de despedida del artista."""
-        print(f"👋 ¡Muchas gracias por su energía! Se despide {self.nombre}. ¡Hasta la próxima!")
+        print(f"Muchas gracias por su energia! Se despide {self.nombre}. Hasta la proxima!")
 
 
 # ==========================================
-# 2️⃣ SUBCLASES DE Artista (HERENCIA)
+# 2. SUBCLASES DE Artista (HERENCIA)
 # ==========================================
 class Cantante(Artista):
     """Subclase que representa a un cantante solista."""
@@ -38,8 +38,8 @@ class Cantante(Artista):
         self.cancion_mas_popular = cancion_mas_popular
 
     def actuar(self):
-        """Sobrescribe actuar() con el comportamiento específico de un cantante."""
-        print(f"🎶 {self.nombre} canta su éxito '{self.cancion_mas_popular}' con gran energía.")
+        """Sobrescribe actuar() con el comportamiento especifico de un cantante."""
+        print(f"{self.nombre} canta su exito '{self.cancion_mas_popular}' con gran energia.")
 
 
 class DJ(Artista):
@@ -50,8 +50,8 @@ class DJ(Artista):
         self.estilo = estilo
 
     def actuar(self):
-        """Sobrescribe actuar() con el comportamiento específico de un DJ."""
-        print(f"🎧 El DJ {self.nombre} mezcla temas de estilo {self.estilo}, haciendo vibrar al público.")
+        """Sobrescribe actuar() con el comportamiento especifico de un DJ."""
+        print(f"El DJ {self.nombre} mezcla temas de estilo {self.estilo}, haciendo vibrar al publico.")
 
 
 class Banda(Artista):
@@ -62,25 +62,25 @@ class Banda(Artista):
         self.integrantes = integrantes
 
     def actuar(self):
-        """Sobrescribe actuar() con el comportamiento específico de una banda."""
-        print(f"🎸 La banda {self.nombre} con {self.integrantes} integrantes toca un poderoso solo de guitarra.")
+        """Sobrescribe actuar() con el comportamiento especifico de una banda."""
+        print(f"La banda {self.nombre} con {self.integrantes} integrantes toca un poderoso solo de guitarra.")
 
 
 # ==========================================
-# 3️⃣ FUNCIÓN DE INICIO DEL FESTIVAL (POLIMORFISMO)
+# 3. FUNCION DE INICIO DEL FESTIVAL (POLIMORFISMO)
 # ==========================================
 def iniciar_festival(lista_artistas):
     """
-    Recorre la lista de artistas y ejecuta sus métodos.
+    Recorre la lista de artistas y ejecuta sus metodos.
     Aplica POLIMORFISMO: trata a todos los objetos como instancias de Artista
-    sin necesidad de condicionales (if/elif) para verificar su tipo específico.
+    sin necesidad de condicionales (if/elif) para verificar su tipo especifico.
     """
     if not lista_artistas:
         print("No hay artistas registrados para el festival.")
         return
 
     print("\n" + "=" * 60)
-    print("🎪✨ ¡COMIENZA EL GRAN FESTIVAL DE MÚSICA! ✨🎪")
+    print("        COMIENZA EL GRAN FESTIVAL DE MUSICA        ")
     print("=" * 60 + "\n")
 
     for i, artista in enumerate(lista_artistas, 1):
@@ -88,39 +88,39 @@ def iniciar_festival(lista_artistas):
         artista.presentarse()
         artista.actuar()
         artista.despedirse()
-        print("\n🎆 Fin de la actuación 🎆\n" + "-" * 60 + "\n")
+        print("\n--- Fin de la actuacion ---\n" + "-" * 60 + "\n")
 
-    print("🎉 El festival ha concluido exitosamente. ¡Gracias al público asistente! 🎉\n")
+    print("El festival ha concluido exitosamente. Gracias al publico asistente!\n")
 
 
 # ==========================================
-# 4️⃣ PROGRAMA PRINCIPAL
+# 4. PROGRAMA PRINCIPAL
 # ==========================================
 def pedir_entero_rango(mensaje: str, minimo: int, maximo: int) -> int:
-    """Función auxiliar para validar números enteros dentro de un rango."""
+    """Funcion auxiliar para validar numeros enteros dentro de un rango."""
     while True:
         try:
             valor = int(input(mensaje))
             if minimo <= valor <= maximo:
                 return valor
-            print(f"⚠️ Por favor ingresa un número entre {minimo} y {maximo}.")
+            print(f"Por favor ingresa un numero entre {minimo} y {maximo}.")
         except ValueError:
-            print("⚠️ Entrada no válida. Ingresa un número entero.")
+            print("Entrada no valida. Ingresa un numero entero.")
 
 
 def main():
     print("========================================")
-    print("    REGISTRO DEL FESTIVAL DE MÚSICA     ")
+    print("    REGISTRO DEL FESTIVAL DE MUSICA     ")
     print("========================================")
 
     while True:
         try:
-            num_artistas = int(input("¿Cuántos artistas se presentarán en el festival?: "))
+            num_artistas = int(input("Cuantos artistas se presentaran en el festival?: "))
             if num_artistas > 0:
                 break
-            print("⚠️ Debes registrar al menos 1 artista.")
+            print("Debes registrar al menos 1 artista.")
         except ValueError:
-            print("⚠️ Por favor ingresa un número válido.")
+            print("Por favor ingresa un numero valido.")
 
     lista_artistas = []
 
@@ -131,21 +131,21 @@ def main():
         print("  2. DJ")
         print("  3. Banda")
 
-        tipo = pedir_entero_rango("Opción (1-3): ", 1, 3)
+        tipo = pedir_entero_rango("Opcion (1-3): ", 1, 3)
 
         nombre = input("Nombre: ").strip()
-        genero = input("Género musical: ").strip()
+        genero = input("Genero musical: ").strip()
         popularidad = pedir_entero_rango("Popularidad (1 al 100): ", 1, 100)
 
-        # Creación del objeto según el tipo seleccionado
+        # Creacion del objeto segun el tipo seleccionado
         if tipo == 1:
-            cancion = input("Canción más popular: ").strip()
+            cancion = input("Cancion mas popular: ").strip()
             artista = Cantante(nombre, genero, popularidad, cancion)
         elif tipo == 2:
             estilo = input("Estilo de mezcla (ej. House, Techno, Electro): ").strip()
             artista = DJ(nombre, genero, popularidad, estilo)
         else:
-            integrantes = pedir_entero_rango("Número de integrantes: ", 1, 100)
+            integrantes = pedir_entero_rango("Numero de integrantes: ", 1, 100)
             artista = Banda(nombre, genero, popularidad, integrantes)
 
         lista_artistas.append(artista)
@@ -156,4 +156,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
