@@ -136,7 +136,7 @@ def build_pdf():
     cur_y -= 22
 
     draw_text_line("Carrera:", box_x, cur_y, FONT_TEXT_BOLD, COLOR_BLACK)
-    draw_text_line("Ingeniería en Tecnologías de la Información y Comunicaciones (TICs)", val_x, cur_y, FONT_TEXT, COLOR_BLACK)
+    draw_text_line("Ingeniería en Tecnologías de la Información y Comunicaciones", val_x, cur_y, FONT_TEXT, COLOR_BLACK)
     cur_y -= 22
 
     draw_text_line("Repositorio:", box_x, cur_y, FONT_TEXT_BOLD, COLOR_BLACK)
