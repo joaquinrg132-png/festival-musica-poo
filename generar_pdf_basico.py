@@ -143,7 +143,7 @@ def build_pdf():
     cur_y -= 22
 
     draw_text_line("Docente:", box_x, cur_y, FONT_TEXT_BOLD, COLOR_BLACK)
-    draw_text_line("Profesor de Programacion Orientada a Objetos", box_x + 100, cur_y, FONT_TEXT, COLOR_BLACK)
+    draw_text_line("Mtra. Yomira del Carmen Rosales Martínez", box_x + 100, cur_y, FONT_TEXT, COLOR_BLACK)
 
     draw_text_line("Aguascalientes, Ags. - Noviembre 2026", margin_x, 60, FONT_TEXT, COLOR_GRAY, center_w=content_w)
 
