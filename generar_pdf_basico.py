@@ -129,21 +129,22 @@ def build_pdf():
 
     cur_y -= 100
 
-    box_x = margin_x + 50
+    box_x = margin_x + 30
+    val_x = box_x + 90
     draw_text_line("Alumno:", box_x, cur_y, FONT_TEXT_BOLD, COLOR_BLACK)
-    draw_text_line("Joaquin Garcia", box_x + 100, cur_y, FONT_TEXT, COLOR_BLACK)
+    draw_text_line("Joaquín García", val_x, cur_y, FONT_TEXT, COLOR_BLACK)
     cur_y -= 22
 
     draw_text_line("Carrera:", box_x, cur_y, FONT_TEXT_BOLD, COLOR_BLACK)
-    draw_text_line("Ingenieria en Sistemas Computacionales", box_x + 100, cur_y, FONT_TEXT, COLOR_BLACK)
+    draw_text_line("Ingeniería en Tecnologías de la Información y Comunicaciones (TICs)", val_x, cur_y, FONT_TEXT, COLOR_BLACK)
     cur_y -= 22
 
     draw_text_line("Repositorio:", box_x, cur_y, FONT_TEXT_BOLD, COLOR_BLACK)
-    draw_text_line("https://github.com/joaquinrg132-png/festival-musica-poo", box_x + 100, cur_y, FONT_TEXT, COLOR_LINK)
+    draw_text_line("https://github.com/joaquinrg132-png/festival-musica-poo", val_x, cur_y, FONT_TEXT, COLOR_LINK)
     cur_y -= 22
 
     draw_text_line("Docente:", box_x, cur_y, FONT_TEXT_BOLD, COLOR_BLACK)
-    draw_text_line("Mtra. Yomira del Carmen Rosales Martínez", box_x + 100, cur_y, FONT_TEXT, COLOR_BLACK)
+    draw_text_line("Mtra. Yomira del Carmen Rosales Martínez", val_x, cur_y, FONT_TEXT, COLOR_BLACK)
 
     draw_text_line("Aguascalientes, Ags. - Noviembre 2026", margin_x, 60, FONT_TEXT, COLOR_GRAY, center_w=content_w)
 
